@@ -40,6 +40,9 @@ for file in filterFiles:
     index += 1
     if not os.path.exists(filePath + mobiName):
         print('转化失败')
+        if not os.path.exists(filePath + 'fail/'):
+            os.makedirs(filePath + 'fail/')
+        os.rename(filePath + epubName, filePath + 'fail/' + epubName)
     # break
     
 logfile.close()
